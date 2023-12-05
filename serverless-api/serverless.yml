@@ -26,6 +26,11 @@ functions:
           path: sender
           method: get
           cors: true
+  receiver:
+    handler: src/handler.receiver
+    events:
+      - sqs:
+          queue: http://localhost:4568/queue/my-queue
 
 plugins:
   - serverless-sqs-local
