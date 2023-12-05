@@ -5,7 +5,7 @@ module.exports.sender = async (event) => {
   try {
 
 
-    const message = { message: 'Hello from serverless!' };
+    const message = { message: 'Hello from serverless! Message sending to SQS' };
     const SQS = new AWS.SQS({ endpoint:'http://localhost:4568'});
     
     await SQS.sendMessage({ QueueUrl: 'http://localhost:4568/queue/my-queue', MessageBody: JSON.stringify(message) }).promise();
