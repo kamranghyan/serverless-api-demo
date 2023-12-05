@@ -6,11 +6,18 @@ provider:
   name: aws
   runtime: nodejs18.x
 
+sqs:
+  stage: local
+  ports:
+    4568: 4568
+  endpoint: http://localhost:4568
+  queueUrl: http://localhost:4568/queue/my-queue
+  
 offline:
   port: 3000
   httpPort: 3001
   checkInterval: 5000
-  
+
 functions:
   sender:
     handler: handler.sender
