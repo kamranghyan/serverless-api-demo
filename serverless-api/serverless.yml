@@ -12,7 +12,7 @@ sqs:
     4568: 4568
   endpoint: http://localhost:4568
   queueUrl: http://localhost:4568/queue/my-queue
-  
+
 offline:
   port: 3000
   httpPort: 3001
@@ -28,4 +28,5 @@ functions:
           cors: true
 
 plugins:
+  - serverless-sqs-local
   - serverless-offline
