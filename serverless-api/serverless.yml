@@ -6,9 +6,19 @@ provider:
   name: aws
   runtime: nodejs18.x
 
+offline:
+  port: 3000
+  httpPort: 3001
+  checkInterval: 5000
+  
 functions:
-  hello:
-    handler: handler.hello
+  sender:
+    handler: handler.sender
+    events:
+      - http:
+          path: sender
+          method: get
+          cors: true
 
 plugins:
   - serverless-offline
